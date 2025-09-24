@@ -1,0 +1,24 @@
+🏗️ Architecture
+Backend : Servlet Java (FrontServlet) qui traite toutes les requêtes
+Frontend : Page HTML simple avec un lien de test
+Serveur : Apache Tomcat (déduit du script de déploiement)
+🔄 Flux de fonctionnement
+Démarrage : L'application est déployée sur Tomcat via le script deployment.bat
+
+Accès utilisateur : L'utilisateur accède à index.html qui contient un lien "tester"
+
+Traitement des requêtes :
+
+Le lien pointe vers FrontController (mappé à /* dans web.xml)
+Toutes les requêtes sont interceptées par FrontServlet
+La servlet extrait l'URL demandée et le chemin d'accès
+Réponse : La servlet retourne :
+
+L'URL complète de la requête
+Une URL reconstruite avec le domaine "www.sprint1.com" + le chemin demandé
+📁 Structure des fichiers
+Projet principal (sprint1_3244/) :
+
+src/Gomenasai/p17/FrontServlet.java - Code principal de la servlet
+lib/ - Bibliothèques servlet API
+creation_jar.bat - Script de compilation et création du JAR
